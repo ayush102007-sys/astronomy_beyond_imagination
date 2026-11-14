@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Universe Gallery{% endblock %}
+
+{% block content %}
+<main>
+    <div class="list">
+        <div id="gallery">
+            <center><h2>The Cosmic Gallery</h2></center>
+        </div>
+        <div class="box1">
+            <a href="{{ url_for('gallery', alt_text= 'earth') }}" class="image-box">
+                <img src="/static/images/earth.jpg" >
+            </a>
+        </div>
+        <div class="box2">
+            <a href="{{ url_for('gallery', alt_text= 'mars') }}" class="image-box">
+                <img src="/static/images/mars.jpg" >
+            </a>
+        </div>
+        <div class="box3">
+            <a href="{{ url_for('gallery', alt_text= 'jupiter') }}" class="image-box">
+                <img src="/static/images/jupiter.jpg" >
+            </a>
+        </div>
+        <div class="box4">
+            <a href="{{ url_for('gallery', alt_text= 'saturn') }}" class="image-box">
+                <img src="/static/images/saturn.jpeg" >
+            </a>
+        </div>
+        <div class="box5">
+            <a href="{{ url_for('gallery', alt_text= 'uranus') }}" class="image-box">
+                <img src="/static/images/uranus.jpg" >
+            </a>
+        </div>
+        <div class="box6">
+            <a href="{{ url_for('gallery', alt_text= 'neptune') }}" class="image-box">
+                <img src="/static/images/neptune.jpg" >
+            </a>
+        </div>
+    </div>
+</main>
+{% endblock %}

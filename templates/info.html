@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Information Page{% endblock %}
+
+{% block content %}
+<main>    
+    <div class="info">
+        <div class="back">
+            <a href="{{ url_for('gallery') }}"><p>⮜──  Back to Gallery</p></a>
+        </div>
+    <p class="obj_name">{{ data.get('name', 'Unknown Object') }}</p>
+    <div class="obj_box">
+        <fieldset>
+            <legend>Quick Facts</legend>
+            <pre class="obj_info">
+
+                Mass               :  {{ data.get('mass_kg', 'In Progess') }} kg
+                
+                Rotation Hours     :  {{ data.get('rotation_period_hours', 'In Progess') }} Hours
+
+                Orbital Period     :  {{ data.get('orbital_period_days', 'In Progess') }} Days
+
+                Distance From Sun  :  {{ data.get('distance_from_sun_km', 'In Progess') }} km
+
+                Moons              :  {{ data.get('moons', 'In Progess') }}
+            </pre>
+        </fieldset>
+    </div>
+    </div>
+</main>
+{% endblock  %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Astronomical Events Page{% endblock  %}
+
+{% block content %}
+<main class="events-page">       
+    <section class="events-intro">
+        <p class="events-eyebrow">✨ THE NIGHT SKY, COMING UP</p>
+        <h1>Upcoming Celestial Events</h1>
+        <p>Look up, make a wish, and catch the universe putting on a show.</p>
+    </section>
+
+    {% if event %}
+    <section class="event-grid" aria-label="Upcoming astronomical events">
+        {% for eve in event %}
+        <article class="event">
+            <div class="event-topline">
+                <span class="event-badge">🌠 {{ eve['kind']|title }} event</span>
+                <span class="event-sparkle" aria-hidden="true">✦</span>
+            </div>
+            <h2>{{ eve['title'] }}</h2>
+            <p class="event-description">🪐 {{ eve['description'] }}</p>
+
+            <div class="event-details">
+                <div class="event-detail">
+                    <span class="event-icon" aria-hidden="true">🕒</span>
+                    <div>
+                        <span class="event-label"><b>Peak time</b></span>
+                        <time>{{ eve['time_date'] }}</time>
+                    </div>
+                </div>
+                <div class="event-detail">
+                    <span class="event-icon" aria-hidden="true">🔭</span>
+                    <div>
+                        <span class="event-label"><b>Event type</b></span>
+                        <span>{{ eve['kind']|title }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <a class="event-link" href="{{ eve['event_url'] }}" target="_blank" rel="noopener noreferrer">
+                Explore event details <span aria-hidden="true">↗</span>
+            </a>
+        </article>
+        {% endfor %}
+    </section>
+    {% else %}
+    <p class="events-empty">🌙 No upcoming events found right now. Check back soon!</p>
+    {% endif %}
+</main>
+{% endblock content %}
