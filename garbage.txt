@@ -1,1 +1,21 @@
 This is only for storing Garbages..
+<main>
+    <div class="info">
+        <div class="back">
+            <a href="{{ url_for('gallery') }}"><p>⮜── Back to Gallery</p></a>
+        </div>
+        <h1 class="obj_name">✨ {{ data.get('name', 'Unknown Object') }} ✨</h1>
+        <section class="obj_box" aria-label="Celestial object facts">
+            <fieldset>
+                <legend>🌌 Quick Facts</legend>
+                <div class="obj_info">
+                    <div class="fact"><strong>⚖️ Mass  :</strong>  {{ data.get('mass_kg', 'In Progress') }} kg</div>
+                    <div class="fact"><strong>🔄 Rotation period  :</strong>  {{ data.get('rotation_period_hours', 'In Progress') }} hours</div>
+                    <div class="fact"><strong>🪐 Orbital period  :</strong>  {{ data.get('orbital_period_days', 'In Progress') }} days</div>
+                    <div class="fact"><strong>☀️ Distance from Sun  :</strong>  {{ data.get('distance_from_sun_km', 'In Progress') }} km</div>
+                    <div class="fact"><strong>🌙 Moons  :</strong>  {{ data.get('moons', 'In Progress') }}</div>
+                </div>
+            </fieldset>
+        </section>
+    </div>
+</main>

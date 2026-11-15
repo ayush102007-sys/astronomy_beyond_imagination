@@ -8,6 +8,16 @@ header{
     color: white;
     padding: 18px 990px 21px 15px;
 }
+
+.nav{
+    color: white;
+    text-decoration: solid;
+    position: relative;
+    left: 658px;
+    padding: 33px;
+    bottom: 15px;
+}
+
 footer{
     background-color: rgb(4, 7, 30);
     color: white;
@@ -20,7 +30,7 @@ footer{
 
 .dashboard {
     min-height: 100vh;
-        background-image: url('/static/images/home.png');
+        background-image: url('/static/images/home2.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -35,7 +45,7 @@ footer{
 
 .list{
     min-height: 100vh;
-        background-image: url('/static/images/gallery.png');
+        background-image: url('/static/images/home3.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -109,10 +119,11 @@ footer{
 }
 .info{
         min-height: 100vh;
-        background-image: url('/static/images/solar_system.png');
+        background-image: url('/static/images/learning.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
+        overflow: hidden;
 }
 
 .event{
@@ -128,7 +139,7 @@ footer{
 
 .events-page{
         min-height: 100vh;
-        background-image: url('/static/images/events.png');
+        background-image: url('/static/images/events1.jpg');
         color: white;
         background-size: cover;
         background-repeat: no-repeat;

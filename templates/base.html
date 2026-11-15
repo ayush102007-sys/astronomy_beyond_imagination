@@ -14,6 +14,12 @@
 <body>
     <header>
         <center><b>Astronomy Beyond Imagination</b></center>
+
+        <nav>
+            <a class="nav" href="/">Home</a>
+            <a class="nav" href="/login">Account</a>
+            <a class="nav" href="/about">About</a>
+        </nav>
     </header>
     {% block content %}
     <main>
@@ -24,8 +30,8 @@
                 about planets, stars, galaxies and the mysteries of our cosmos. 
                 Perfect for curious minds of all ages.
             </small>
-            <form action="/gallery" method="post">
-                <input type="submit" value="Explore Gallery >" style="background-color: #ff008f;
+            <form action="/login" method="post">
+                <input type="submit" value="Start Journey >" style="background-color: #ff008f;
                 color: white;
                 position: relative;
                 border-radius: 30px;
@@ -37,8 +43,10 @@
             </form>
 
             <div class="b1">
-                <h5>Cosmic Gallery</h5>
-                <p><small>Stunning space images</small></p>
+                <a href="{{ url_for('gallery') }}">
+                    <h5>Cosmic Gallery</h5>
+                    <p><small>Stunning space images</small></p>
+                </a>
             </div>
             <div class="b1">
                 <h5>Astronomy Quiz</h5>
