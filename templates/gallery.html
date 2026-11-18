@@ -8,36 +8,23 @@
         <div id="gallery">
             <center><h2>The Cosmic Gallery</h2></center>
         </div>
-        <div class="box1">
-            <a href="{{ url_for('gallery', alt_text= 'earth') }}" class="image-box">
-                <img src="/static/images/earth.jpg" >
-            </a>
+        <div class="search">
+            <form action="/images" method="post">
+
+                <label for="object"></label>
+                <input type="text" name="object" id="object" placeholder="Search for objects...">
+                <input type="submit" value="Search" id="submit">
+
+            </form>
         </div>
-        <div class="box2">
-            <a href="{{ url_for('gallery', alt_text= 'mars') }}" class="image-box">
-                <img src="/static/images/mars.jpg" >
-            </a>
-        </div>
-        <div class="box3">
-            <a href="{{ url_for('gallery', alt_text= 'jupiter') }}" class="image-box">
-                <img src="/static/images/jupiter.jpg" >
-            </a>
-        </div>
-        <div class="box4">
-            <a href="{{ url_for('gallery', alt_text= 'saturn') }}" class="image-box">
-                <img src="/static/images/saturn.jpeg" >
-            </a>
-        </div>
-        <div class="box5">
-            <a href="{{ url_for('gallery', alt_text= 'uranus') }}" class="image-box">
-                <img src="/static/images/uranus.jpg" >
-            </a>
-        </div>
-        <div class="box6">
-            <a href="{{ url_for('gallery', alt_text= 'neptune') }}" class="image-box">
-                <img src="/static/images/neptune.jpg" >
-            </a>
-        </div>
+        {% for obj, id in lst %}
+           <div class="box{{ loop.index }}">
+                <a href="{{ url_for('gallery', alt_text= 'obj') }}" class="image-box">
+                    <img src="{{ id }}" >
+                </a>
+           </div>          
+        {% endfor %}
+        
     </div>
 </main>
 {% endblock %}

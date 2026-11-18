@@ -21,8 +21,6 @@ def solar_api(planet):
             timeout=20
         )
         response.raise_for_status()
-        
-        print("Status Code:", response.status_code)
         data = response.json() 
         
         # Extract mass
@@ -35,12 +33,16 @@ def solar_api(planet):
         moons_list = []
         moon_dict = {}
         moons = data.get("moons", [])
-        for moon in moons:
-            moon_name = moon.get("moon")
-            if moon_name:
-                moons_list.append(moon_name)
-            moon_dict["total"] = len(moons_list)
-            moon_dict["moons"] = moons_list
+        if planet not in ["venus", "mercury"]:
+            for moon in moons:
+                moon_name = moon.get("moon")
+                if moon_name:
+                    moons_list.append(moon_name)
+                moon_dict["total"] = len(moons_list)
+                moon_dict["moons"] = moons_list
+                
+        else:
+            moon_dict["total"] = 0
             
         if mass_value is not None and mass_exponent is not None:
             mass = mass_value * (10 ** mass_exponent)
@@ -94,3 +96,26 @@ def events_api():
         print("API request failed:", error)
 
     return events_lst
+
+def images_api(nasa_id):
+    
+    url = f"https://images-api.nasa.gov/asset/{nasa_id}"
+
+    response = requests.get(url, timeout=40)
+    response.raise_for_status()
+
+    data = response.json()
+
+    image_files = [
+        item["href"]
+        for item in data["collection"]["items"]
+        if item["href"].lower().endswith((".jpg", ".jpeg", ".png", ".tif", ".tiff"))
+    ]
+
+    # Prefer original resolution; otherwise use medium resolution
+    image_url = next(
+        (url for url in image_files if "~orig." in url),
+        next((url for url in image_files if "~medium." in url), None)
+    )
+
+    return image_url

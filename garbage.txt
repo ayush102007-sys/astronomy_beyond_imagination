@@ -1,21 +1,30 @@
-This is only for storing Garbages..
-<main>
-    <div class="info">
-        <div class="back">
-            <a href="{{ url_for('gallery') }}"><p>⮜── Back to Gallery</p></a>
+<div class="box1">
+            <a href="{{ url_for('gallery', alt_text= 'earth') }}" class="image-box">
+                <img src="/static/images/earth.jpg" >
+            </a>
         </div>
-        <h1 class="obj_name">✨ {{ data.get('name', 'Unknown Object') }} ✨</h1>
-        <section class="obj_box" aria-label="Celestial object facts">
-            <fieldset>
-                <legend>🌌 Quick Facts</legend>
-                <div class="obj_info">
-                    <div class="fact"><strong>⚖️ Mass  :</strong>  {{ data.get('mass_kg', 'In Progress') }} kg</div>
-                    <div class="fact"><strong>🔄 Rotation period  :</strong>  {{ data.get('rotation_period_hours', 'In Progress') }} hours</div>
-                    <div class="fact"><strong>🪐 Orbital period  :</strong>  {{ data.get('orbital_period_days', 'In Progress') }} days</div>
-                    <div class="fact"><strong>☀️ Distance from Sun  :</strong>  {{ data.get('distance_from_sun_km', 'In Progress') }} km</div>
-                    <div class="fact"><strong>🌙 Moons  :</strong>  {{ data.get('moons', 'In Progress') }}</div>
-                </div>
-            </fieldset>
-        </section>
-    </div>
-</main>
+        <div class="box2">
+            <a href="{{ url_for('gallery', alt_text= 'mars') }}" class="image-box">
+                <img src="/static/images/mars.jpg" >
+            </a>
+        </div>
+        <div class="box3">
+            <a href="{{ url_for('gallery', alt_text= 'jupiter') }}" class="image-box">
+                <img src="/static/images/jupiter.jpg" >
+            </a>
+        </div>
+        <div class="box4">
+            <a href="{{ url_for('gallery', alt_text= 'saturn') }}" class="image-box">
+                <img src="/static/images/saturn.jpeg" >
+            </a>
+        </div>
+        <div class="box5">
+            <a href="{{ url_for('gallery', alt_text= 'uranus') }}" class="image-box">
+                <img src="/static/images/uranus.jpg" >
+            </a>
+        </div>
+        <div class="box6">
+            <a href="{{ url_for('gallery', alt_text= 'neptune') }}" class="image-box">
+                <img src="/static/images/neptune.jpg" >
+            </a>
+        </div>

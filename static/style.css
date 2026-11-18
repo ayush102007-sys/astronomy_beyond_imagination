@@ -101,9 +101,9 @@ footer{
     color: aliceblue;
     border: 1px solid rgb(32, 32, 145);
     height: 40vh;
-    margin: 40px 205px;
+    margin: 40px 470px;
     position: relative;
-    right: 115px;
+    right: 350px;
     bottom: 155px;
 }
 
@@ -220,4 +220,38 @@ footer{
     color: #f1f3ff;
     font-family: Arial, sans-serif;
     font-size: 16px;
+}
+
+.search{
+    text-align: center;
+}
+
+#object{
+    opacity: 0.5;
+    width: 35vw;
+    height: 5vh;
+    background-color: rgb(1 1 2 / 50%);
+    color: white;
+}
+
+#submit{
+    background-color: violet;
+    columns: red;
+}
+
+.image{
+        width: 50vw;
+        height: 65vh;
+        border: 1px solid white;
+        overflow: hidden;
+        position: relative;
+        bottom: 450px;
+        left: 625px;
+}
+
+.image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
