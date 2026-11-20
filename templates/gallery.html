@@ -9,13 +9,27 @@
             <center><h2>The Cosmic Gallery</h2></center>
         </div>
         <div class="search">
-            <form action="/images" method="post">
+            <form action=
+            "{{ url_for('gallery', cat_text= '') }}" method="post">
 
                 <label for="object"></label>
                 <input type="text" name="object" id="object" placeholder="Search for objects...">
                 <input type="submit" value="Search" id="submit">
 
             </form>
+        </div>
+
+        <div class="category">
+
+            <a href=
+            "{{ url_for('gallery', cat_text= 'planet', idx= 0) }}" class="cat">Planets</a>
+            <a href=
+            "{{ url_for('gallery', cat_text= 'star', idx= 1) }}" class="cat">Stars</a>
+            <a href=
+            "{{ url_for('gallery', cat_text= 'galaxy', idx= 2) }}" class="cat">Galaxies</a>
+            <a href=
+            "{{ url_for('gallery', cat_text= 'nebulae', idx= 3) }}" class="cat">Nebulaes</a>
+
         </div>
         {% for obj, image_url in lst %}
            <div class="box{{ loop.index }}">

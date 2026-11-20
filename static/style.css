@@ -111,7 +111,7 @@ footer{
     background-color: rgba(126, 16, 230, 0.8);
 }
 
-.back a{
+.back{
     color: floralwhite;
     padding: 0px 1070px 1px 0px;
     font-size: smaller;
@@ -254,4 +254,20 @@ footer{
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+.category{
+    display: flex;
+    justify-content: center;
+}
+
+a.cat{
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    height: 5vh;
+    width: 6vw;
+    text-align: center;
+    text-decoration: solid;
+    margin: 5px 10px;
 }

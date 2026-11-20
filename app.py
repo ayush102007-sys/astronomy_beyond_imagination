@@ -1,8 +1,9 @@
-from flask import Flask, abort, render_template, request
+from flask import Flask, abort, render_template, request, session
 from API import solar_api as solar , events_api as event_api , images_api as img, object_api as objects
-from objects_list import view_list
+from objects_list import create_list
 
 app = Flask(__name__)
+ # app.secret_key = '_5#y2L"F4Q8z\n\xec]/'
 
 @app.route("/") 
 def home():
@@ -13,11 +14,14 @@ def gallery():
     if request.method == "POST":
         return render_template("gallery.html")
     else: 
+        category = request.args.get("cat_text", default= 'planet')
+        idx = request.args.get("idx", default= 0, type=int)
         key = []
         val = []
         img_urls = []
-        if view_list:
-            for ele in view_list:
+        gallery_list = create_list(category, idx)
+        if gallery_list:
+            for ele in gallery_list:
                 key.append(next(iter(ele.keys())))
                 val.append(next(iter(ele.values())))
         for url in val:
