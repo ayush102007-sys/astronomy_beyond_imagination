@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request
-from API import solar_api as solar , events_api as event_api , images_api as img
+from flask import Flask, abort, render_template, request
+from API import solar_api as solar , events_api as event_api , images_api as img, object_api as objects
 from objects_list import view_list
 
 app = Flask(__name__)
@@ -13,12 +13,11 @@ def gallery():
     if request.method == "POST":
         return render_template("gallery.html")
     else: 
-        gallery_list = view_list
         key = []
         val = []
         img_urls = []
-        if gallery_list:
-            for ele in gallery_list:
+        if view_list:
+            for ele in view_list:
                 key.append(next(iter(ele.keys())))
                 val.append(next(iter(ele.values())))
         for url in val:
@@ -26,6 +25,21 @@ def gallery():
             img_urls.append(img_link)
             
         return render_template("gallery.html", lst=zip(key, img_urls))
+    
+@app.route("/info")
+def info():
+    obj = request.args.get("alt_text", "").strip().lower()
+    image_url = request.args.get("image_url")
+    if not obj:
+        abort(400, description="An object name is required.")
+    
+    if obj in ["mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune", "moon"]:
+        solar_data = solar(obj)
+        return render_template("info.html", solar_data=solar_data,  image_url=image_url)
+    
+    else:
+        space_data = objects(obj)
+        return render_template("info.html", space_data= space_data ,image_url=image_url)
     
 @app.route("/events")
 def events():

@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta, timezone
 import requests, os
 from dotenv import load_dotenv
+from objects_list import PROPERTY_CONFIG, PROPERTY_LABELS
 
 IST = timezone(timedelta(hours=5, minutes=30), name="IST")
 load_dotenv()
@@ -33,7 +34,7 @@ def solar_api(planet):
         moons_list = []
         moon_dict = {}
         moons = data.get("moons", [])
-        if planet not in ["venus", "mercury"]:
+        if planet not in ["venus", "mercury", "moon", "sun"]:
             for moon in moons:
                 moon_name = moon.get("moon")
                 if moon_name:
@@ -63,13 +64,53 @@ def solar_api(planet):
 
     return planet_data
 
+def object_api(obj):
+    url = "https://spacecatalog.org/api/v1/search"
+
+    try:
+        params = {
+            "q": f"{obj}",
+            "limit": 1
+        }
+        response = requests.get(url, params=params, timeout=20)
+        response.raise_for_status()
+
+        data = response.json()
+
+        if not data.get("results"):
+            print("No objects found.")
+
+        else:
+            first_result = data["results"][0]
+            category = first_result.get("category")
+            cat_lst = PROPERTY_CONFIG.get(category, [])
+            selected_values = {}
+
+            for key in cat_lst:
+                value = first_result.get(key)
+
+                if value is not None:
+                    details = PROPERTY_LABELS.get(key, {})
+
+                    label = details.get("label", key)
+                    unit = details.get("unit", "")
+
+                    formatted_value = f"{value} {unit}".strip()
+
+                    selected_values[label] = formatted_value
+
+            print(selected_values)
+
+    except requests.exceptions.RequestException as error:
+        print("API request failed:", error)
+
+
+
 def events_api():
     url = "https://spacecatalog.org/api/v1/events"
 
     try:
         params = {
-        "from": "2026-11-14",
-        "to": "2026-12-14",
         "limit": 6
     }
         response = requests.get(url, params=params, timeout=20)
