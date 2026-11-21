@@ -1,4 +1,4 @@
-from flask import Flask, abort, render_template, request, session
+from flask import Flask, abort, render_template, request
 from API import solar_api as solar , events_api as event_api , images_api as img, object_api as objects
 from objects_list import create_list
 
@@ -39,11 +39,21 @@ def info():
     
     if obj in ["mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune", "moon"]:
         solar_data = solar(obj)
-        return render_template("info.html", solar_data=solar_data,  image_url=image_url)
+        return render_template(
+            "info.html",
+            solar_data=solar_data,
+            object_name=obj,
+            image_url=image_url,
+        )
     
     else:
         space_data = objects(obj)
-        return render_template("info.html", space_data= space_data ,image_url=image_url)
+        return render_template(
+            "info.html",
+            space_data=space_data,
+            object_name=obj,
+            image_url=image_url,
+        )
     
 @app.route("/events")
 def events():

@@ -22,15 +22,25 @@
                 </div>
             </fieldset>
         </section>
+        {% elif space_data %}
+        <h1 class="obj_name">✨ {{ space_data.get('name', object_name) }} ✨</h1>
+        <section class="obj_box" aria-label="Celestial object facts">
+            <fieldset>
+                <legend>🌌 Quick Facts</legend>
+                <div class="obj_info">
+                    {% for label, value in space_data.items() %}
+                    <div class="fact"><strong>{{ label }}:</strong> {{ value }}</div>
+                    {% endfor %}
+                </div>
+            </fieldset>
+        </section>
         {% else %}
-        <h1>
-            This is space catalogue {{ space_data }}
-        </h1>
+        <p>No catalogue data found for {{ object_name }}.</p>
         {% endif %}
 
         <div class="image">
             {% if image_url %}
-            <img src="{{ image_url }}" alt="{{ solar_data.get('name', 'Celestial object') }}">
+            <img src="{{ image_url }}" alt="{{ object_name }}">
             {% endif %}
         </div>
     </div>

@@ -78,31 +78,31 @@ def object_api(obj):
         data = response.json()
 
         if not data.get("results"):
-            print("No objects found.")
+            return {}
 
-        else:
-            first_result = data["results"][0]
-            category = first_result.get("category")
-            cat_lst = PROPERTY_CONFIG.get(category, [])
-            selected_values = {}
+        first_result = data["results"][0]
+        category = first_result.get("category")
+        cat_lst = PROPERTY_CONFIG.get(category, [])
+        selected_values = {}
 
-            for key in cat_lst:
-                value = first_result.get(key)
+        for key in cat_lst:
+            value = first_result.get(key)
 
-                if value is not None:
-                    details = PROPERTY_LABELS.get(key, {})
+            if value is not None:
+                details = PROPERTY_LABELS.get(key, {})
 
-                    label = details.get("label", key)
-                    unit = details.get("unit", "")
+                label = details.get("label", key)
+                unit = details.get("unit", "")
 
-                    formatted_value = f"{value} {unit}".strip()
+                formatted_value = f"{value} {unit}".strip()
 
-                    selected_values[label] = formatted_value
+                selected_values[label] = formatted_value
 
-            print(selected_values)
+        return selected_values
 
     except requests.exceptions.RequestException as error:
         print("API request failed:", error)
+        raise
 
 
 

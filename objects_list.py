@@ -34,7 +34,22 @@ object_dict = [
     {"NGC 300": "PIA10113"}
     ]},
     
-     # Nebulae Required   
+    {"nebulae":
+    [{"Orion" : "PIA08654"},
+    {"Pillars of Creation": "GSFC_20171208_Archive_e000842"},
+    {"Crab Nebula": "PIA03606"},
+    {"Ring Nebula": "hubble-sees-a-dying-stars-final-moments_20149292766_o"},
+    {"Helix Nebula": "PIA18164"},
+    {"Carina Nebula": "PIA17257"},
+    {"Lagoon Nebula": "PIA14728"},
+    {"Trifid Nebula": "PIA17834"},
+    {"Horsehead Nebula": "GSFC_20171208_Archive_e001518"},
+    {"Rosette Nebula": "PIA09268"},
+    {"Cat's Eye Nebula": "GSFC_20171208_Archive_e002155"},
+    {"Dumbbell Nebula": "PIA14417"},
+    {"Bubble Nebula": "GSFC_20171208_Archive_e000383"}
+
+    ]}   
 ]
 def create_list(obj_cat, index):
 # Select six distinct elements at random.
@@ -50,12 +65,12 @@ PROPERTY_CONFIG = {
         "name",
         "constellation",
         "dec_deg",
-        "ra_deg"
+        "ra_deg",
         "radius_solar",
         "distance_ly",
         "mass_kg",
         "mag",
-        "mag_band"
+        "mag_band",
         "object_type",
     ],
 
@@ -63,7 +78,7 @@ PROPERTY_CONFIG = {
         "name",
         "constellation",
         "dec_deg",
-        "ra_deg"
+        "ra_deg",
         "discovered",
         "distance_ly",
         "mag",
@@ -76,7 +91,7 @@ PROPERTY_CONFIG = {
         "name",
         "constellation",
         "dec_deg",
-        "ra_deg"
+        "ra_deg",
         "discovered",
         "distance_ly",
         "mag",
