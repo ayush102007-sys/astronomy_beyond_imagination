@@ -29,7 +29,10 @@ footer{
 }
 
 .dashboard {
-    min-height: 100vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        min-height: 100vh;
         background-image: url('/static/images/home2.jpg');
         background-size: cover;
         background-repeat: no-repeat;
@@ -38,11 +41,9 @@ footer{
         color: white;
         padding: 2px;
         }
-
-/* .dashboard h3, p{
+.b0{
     text-align: center;
-} */
-
+}
 .list{
     min-height: 100vh;
         background-image: url('/static/images/gallery.jpg');
@@ -53,28 +54,26 @@ footer{
         padding: 10px 10px;
         }
 .box1 , .box2 , .box3 , .box4, .box5, .box6{
-    display: inline-block;
+    /* display: inline-block; */
     border: 2px solid white;
     width: 280px;
     height: 235px;
     overflow: hidden;
-    margin: 75px;
+    margin: 75px; 
 }
 
-.b1{
-    display: inline-block;
+.b1, .b2{
     border: 1px solid rgb(67 43 0 / 70%);
     background-color: rgba(15, 15, 51, 0.7);
-    width: 25vh;
-    height: 10vh;
+    width: 60vh;
+    height: 15vh;
     overflow: hidden;
-    margin: 75px;
-    position: relative;
-    top: 20vh;
+    margin: 50px;
     border-radius: 7px;
+    text-align: center;
 }
 
-.b1 a{
+.b1 a, .b2 a{
     text-decoration: solid;
     color: white;
 }
@@ -271,3 +270,8 @@ a.cat{
     text-decoration: solid;
     margin: 5px 10px;
 }
+
+/* .home-grid{
+    display: grid;
+    grid-template-columns: auto auto;
+} */

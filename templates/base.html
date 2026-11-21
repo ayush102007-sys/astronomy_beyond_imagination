@@ -24,44 +24,44 @@
     {% block content %}
     <main>
         <div class="dashboard">
-            <h3 style="font-size: 35px;">Explore the Wonders of Our Universe</h3>
+            <div class="b0">
+                <h3 style="font-size: 35px;">Explore the Wonders of Our Universe</h3>
             <small style="font-size: 15px;
             font-weight: 800;">Journey through space with interactive lessons 
                 about planets, stars, galaxies and the mysteries of our cosmos. 
                 Perfect for curious minds of all ages.
             </small>
-            <form action="/login" method="post">
-                <input type="submit" value="Start Journey >" style="background-color: #ff008f;
+            <form action="/login" method="post" style= "margin: 40px">
+                <input type="submit" value="Start Journey >"
+                style="background-color: #ff008f;
                 color: white;
-                position: relative;
                 border-radius: 30px;
-                right: -520px;
-                bottom: -80px;
                 width: 285px;
                 height: 50px;
                 text-align: center;">
             </form>
-
-            <div class="b1">
+            </div>
+                <div class="b1">
                 <a href="{{ url_for('gallery') }}">
                     <h5>Cosmic Gallery</h5>
                     <p><small>Stunning space images</small></p>
                 </a>
-            </div>
-            <div class="b1">
-                <h5>Astronomy Quiz</h5>
-                <p><small>Test your knowledge</small></p>
-            </div>
-            <div class="b1">
-                <a href="{{ url_for('events') }}">
-                    <h5>Upcoming Events</h5>
-                    <p><small>Never miss a celestial event</small></p>
-                </a>
-            </div>
-            <div class="b1">
-                <h5>More Exciting Topics</h5>
-                <p><small>Join our team</small></p>
-            </div>
+                </div>
+                <div class="b1">
+                    <h5>Astronomy Quiz</h5>
+                    <p><small>Test your knowledge</small></p>
+                </div>
+                <div class="b2">
+                    <a href="{{ url_for('events') }}">
+                        <h5>Upcoming Events</h5>
+                        <p><small>Never miss a celestial event</small></p>
+                    </a>
+                </div>
+                <div class="b2">
+                    <h5>More Exciting Topics</h5>
+                    <p><small>Join our team</small></p>
+                </div>
+            
     </main>
     </div>
 
