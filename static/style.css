@@ -6,16 +6,20 @@
 header{
     background-color: rgb(4, 7, 30);
     color: white;
-    padding: 18px 990px 21px 15px;
+    padding: 18px 15px 21px;
+}
+
+nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
 }
 
 .nav{
     color: white;
     text-decoration: solid;
-    position: relative;
-    left: 658px;
-    padding: 33px;
-    bottom: 15px;
+    padding: 8px;
 }
 
 footer{
@@ -33,6 +37,9 @@ footer{
         flex-wrap: wrap;
         justify-content: center;
         min-height: 100vh;
+        min-height: 100svh;
+        width: 100%;
+        box-sizing: border-box;
         background-image: url('/static/images/home2.jpg');
         background-size: cover;
         background-repeat: no-repeat;
@@ -46,6 +53,7 @@ footer{
 }
 .list{
     min-height: 100vh;
+        min-height: 100svh;
         background-image: url('/static/images/gallery.jpg');
         background-size: cover;
         background-repeat: no-repeat;
@@ -65,12 +73,16 @@ footer{
 .b1, .b2{
     border: 1px solid rgb(67 43 0 / 70%);
     background-color: rgba(15, 15, 51, 0.7);
-    width: 60vh;
-    height: 15vh;
-    overflow: hidden;
-    margin: 50px;
+    width: min(90%, 500px);
+    min-height: 100px;
+    box-sizing: border-box;
+    margin: 12px;
+    padding: 16px;
     border-radius: 7px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .b1 a, .b2 a{
@@ -118,6 +130,7 @@ footer{
 }
 .info{
         min-height: 100vh;
+        min-height: 100svh;
         background-image: url('/static/images/info3.jpg');
         background-size: cover;
         background-repeat: no-repeat;
@@ -138,11 +151,23 @@ footer{
 
 .events-page{
         min-height: 100vh;
+        min-height: 100svh;
         background-image: url('/static/images/events3.jpg');
         color: white;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: right;
+}
+
+@media (max-width: 600px){
+    .events-page{
+        background-position: center;
+    }
+
+    .dashboard input[type="submit"]{
+        max-width: 100%;
+        box-sizing: border-box;
+    }
 }
 
 .events-eyebrow{
