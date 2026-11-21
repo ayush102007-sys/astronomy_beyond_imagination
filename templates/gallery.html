@@ -20,24 +20,31 @@
         </div>
 
         <div class="category">
+            <div class="cat1">
+                <a href="{{ url_for('gallery', cat_text= 'planet', idx=0) }}" class="cat">Planets</a>
 
-            <a href=
-            "{{ url_for('gallery', cat_text= 'planet', idx= 0) }}" class="cat">Planets</a>
-            <a href=
-            "{{ url_for('gallery', cat_text= 'star', idx= 1) }}" class="cat">Stars</a>
-            <a href=
+                <a href="{{ url_for('gallery', cat_text= 'star', idx=1) }}" class="cat">Stars</a>
+            </div>
+
+            <div class="cat2">
+                <a href=
             "{{ url_for('gallery', cat_text= 'galaxy', idx= 2) }}" class="cat">Galaxies</a>
             <a href=
             "{{ url_for('gallery', cat_text= 'nebulae', idx= 3) }}" class="cat">Nebulaes</a>
+            </div>
 
         </div>
-        {% for obj, image_url in lst %}
+
+        <div class="gallery-grid">
+            {% for obj, image_url in lst %}
            <div class="box{{ loop.index }}">
                 <a href="{{ url_for('info', alt_text=obj|lower, image_url=image_url) }}" class="image-box">
                     <img src="{{ image_url }}" >
                 </a>
            </div>          
         {% endfor %}
+        </div>
+        
         
     </div>
 </main>
