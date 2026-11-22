@@ -295,6 +295,22 @@ a.cat{
     grid-template-columns: auto auto;
 }
 
+/* Phones */
+@media only screen and (max-width: 600px){
+    .gallery-grid{
+        display: grid;
+        grid-template-columns: auto;
+}
+}
+
+/* Tablets 
+@media only screen and (max-width: 1024px){
+    .gallery-grid{
+        display: grid;
+        grid-template-columns: auto auto;
+}
+} */
+
 .box1 , .box2 , .box3 , .box4, .box5, .box6{
     border: 2px solid white;
     width: 280px;
