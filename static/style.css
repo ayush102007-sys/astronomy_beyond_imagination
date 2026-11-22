@@ -298,18 +298,49 @@ a.cat{
 /* Phones */
 @media only screen and (max-width: 600px){
     .gallery-grid{
-        display: grid;
-        grid-template-columns: auto;
-}
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .gallery-grid .box1 , 
+    .gallery-grid .box2 , 
+    .gallery-grid .box3 , 
+    .gallery-grid .box4, 
+    .gallery-grid .box5, 
+    .gallery-grid .box6{
+        border: 2px solid white;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        margin: 50px; 
+        aspect-ratio: 280 / 235;
+        box-sizing: border-box;
+    }
 }
 
-/* Tablets 
-@media only screen and (max-width: 1024px){
+/* Tablets */
+@media only screen and (min-width: 601px) and (max-width: 1024px){
     .gallery-grid{
-        display: grid;
-        grid-template-columns: auto auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .gallery-grid .box1 , 
+    .gallery-grid .box2 , 
+    .gallery-grid .box3 , 
+    .gallery-grid .box4, 
+    .gallery-grid .box5, 
+    .gallery-grid .box6{
+        border: 2px solid white;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        margin: 100px; 
+        aspect-ratio: 280 / 235;
+        box-sizing: border-box;
+    }
+
 }
-} */
 
 .box1 , .box2 , .box3 , .box4, .box5, .box6{
     border: 2px solid white;
