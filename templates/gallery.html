@@ -39,7 +39,7 @@
             {% for obj, image_url in lst %}
            <div class="box{{ loop.index }}">
                 <a href="{{ url_for('info', alt_text=obj|lower, image_url=image_url) }}" class="image-box">
-                    <img src="{{ image_url }}" >
+                    <img src="{{ image_url }}" alt="{{ obj }}">
                 </a>
            </div>          
         {% endfor %}

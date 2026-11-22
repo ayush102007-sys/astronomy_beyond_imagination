@@ -86,7 +86,7 @@ def object_api(obj):
         selected_values = {}
 
         for key in cat_lst:
-            value = first_result.get(key)
+            value = f"{first_result.get(key):.2f}" if type(first_result.get(key)) == float else first_result.get(key)
 
             if value is not None:
                 details = PROPERTY_LABELS.get(key, {})

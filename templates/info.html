@@ -8,17 +8,28 @@
         <div class="back">
             <a href="{{ url_for('gallery') }}"><p>⮜── Back to Gallery</p></a>
         </div>
+
+        <div class="image">
+            {% if image_url %}
+            <img src="{{ image_url }}" alt="{{ object_name }}">
+            {% endif %}
+        </div>
+
         {% if solar_data %}
         <h1 class="obj_name">✨ {{ solar_data.get('name', 'Unknown Object') }} ✨</h1>
         <section class="obj_box" aria-label="Celestial object facts">
             <fieldset>
                 <legend>🌌 Quick Facts</legend>
                 <div class="obj_info">
-                    <div class="fact"><strong>⚖️ Mass  :</strong>  {{ solar_data.get('mass_kg', 'In Progress') }} kg</div> <br>
-                    <div class="fact"><strong>🔄 Rotation period  :</strong>  {{ solar_data.get('rotation_period_hours', 'In Progress') }} hours</div> <br>
-                    <div class="fact"><strong>🪐 Orbital period  :</strong>  {{ solar_data.get('orbital_period_days', 'In Progress') }} days</div> <br>
-                    <div class="fact"><strong>☀️ Distance from Sun  :</strong>  {{ solar_data.get('distance_from_sun_km', 'In Progress') }} km</div> <br>
-                    <div class="fact"><strong>🌙 Moons  :</strong>  {{ solar_data.get('moons', 'In Progress') }}</div> 
+                    <table class="facts-table">
+                        <tbody>
+                            <tr><th scope="row">⚖️ Mass</th><td>{{ solar_data.get('mass_kg', 'In Progress') }} kg</td></tr>
+                            <tr><th scope="row">🔄 Rotation period</th><td>{{ solar_data.get('rotation_period_hours', 'In Progress') }} hours</td></tr>
+                            <tr><th scope="row">🪐 Orbital period</th><td>{{ solar_data.get('orbital_period_days', 'In Progress') }} days</td></tr>
+                            <tr><th scope="row">☀️ Distance from Sun</th><td>{{ solar_data.get('distance_from_sun_km', 'In Progress') }} km</td></tr>
+                            <tr><th scope="row">🌙 Moons</th><td>{{ solar_data.get('moons', 'In Progress') }}</td></tr>
+                        </tbody>
+                    </table>
                 </div>
             </fieldset>
         </section>
@@ -28,9 +39,13 @@
             <fieldset>
                 <legend>🌌 Quick Facts</legend>
                 <div class="obj_info">
-                    {% for label, value in space_data.items() %}
-                    <div class="fact"><strong>{{ label }}:</strong> {{ value }}</div>
-                    {% endfor %}
+                    <table class="facts-table">
+                        <tbody>
+                            {% for label, value in space_data.items() %}
+                            <tr><th scope="row">{{ label }}</th><td>{{ value }}</td></tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
             </fieldset>
         </section>
@@ -38,11 +53,6 @@
         <p>No catalogue data found for {{ object_name }}.</p>
         {% endif %}
 
-        <div class="image">
-            {% if image_url %}
-            <img src="{{ image_url }}" alt="{{ object_name }}">
-            {% endif %}
-        </div>
     </div>
 </main>
 {% endblock %}
