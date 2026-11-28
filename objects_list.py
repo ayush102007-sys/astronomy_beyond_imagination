@@ -22,20 +22,20 @@ object_dict = [
     ]},
     
     {"galaxy":
-    [{"Andromeda": "7993119"},
-    {"Whirlpool": "PIA23005"},
-    {"Sombrero": "PIA15226"},
-    {"Pinwheel": "GSFC_20171208_Archive_e001979"},
-    {"Triangulum": "GSFC_20171208_Archive_e001913"},
-    {"Cigar": "PIA23010"},
+    [{"Andromeda Galaxy": "7993119"},
+    {"Whirlpool Galaxy": "PIA23005"},
+    {"Sombrero Galaxy": "PIA15226"},
+    {"Pinwheel Galaxy": "GSFC_20171208_Archive_e001979"},
+    {"Triangulum Galaxy": "GSFC_20171208_Archive_e001913"},
+    {"Cigar Galaxy": "PIA23010"},
     {"M81": "PIA09579"},
     {"M87": "PIA23122"},
-    {"Sunflower": "PIA13900"},
+    {"Sunflower Galaxy": "PIA13900"},
     {"NGC 300": "PIA10113"}
     ]},
     
     {"nebulae":
-    [{"Orion" : "PIA08654"},
+    [{"Orion Nebula" : "PIA08654"},
     {"Pillars of Creation": "GSFC_20171208_Archive_e000842"},
     {"Crab Nebula": "PIA03606"},
     {"Ring Nebula": "hubble-sees-a-dying-stars-final-moments_20149292766_o"},
@@ -45,7 +45,7 @@ object_dict = [
     {"Trifid Nebula": "PIA17834"},
     {"Horsehead Nebula": "GSFC_20171208_Archive_e001518"},
     {"Rosette Nebula": "PIA09268"},
-    {"Cat's Eye Nebula": "GSFC_20171208_Archive_e002155"},
+    {"Caldwell 6": "GSFC_20171208_Archive_e002155"},
     {"Dumbbell Nebula": "PIA14417"},
     {"Bubble Nebula": "GSFC_20171208_Archive_e000383"}
 

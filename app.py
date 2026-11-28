@@ -11,12 +11,12 @@ app.secret_key = os.getenv("SESSION_KEY")
 
 @app.route("/") 
 def home():
-    session["obj"] = ['planet', 0]
     return render_template("base.html")
 
 @app.route("/gallery", methods=["GET","POST"])
 def gallery():
     if request.method == "POST":
+        session["obj"] = ['planet', 0]
         return render_template("gallery.html")
     else:  
         category = request.args.get("cat_text", default= session['obj'][0])
