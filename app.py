@@ -16,9 +16,11 @@ def home():
 @app.route("/gallery", methods=["GET","POST"])
 def gallery():
     if request.method == "POST":
-        session["obj"] = ['planet', 0]
         return render_template("gallery.html")
     else:  
+        if "obj" not in session:
+            session["obj"] = ['planet', 0]
+            
         category = request.args.get("cat_text", default= session['obj'][0])
         idx = request.args.get("idx", default= session['obj'][1], type=int)
         key = []
