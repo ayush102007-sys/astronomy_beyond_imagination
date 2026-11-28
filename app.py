@@ -7,6 +7,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
+
+# app session key 
 app.secret_key = os.getenv("SESSION_KEY")
 
 @app.route("/") 
