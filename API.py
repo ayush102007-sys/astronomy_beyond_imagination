@@ -2,6 +2,7 @@ from datetime import datetime, timedelta, timezone
 import requests, os
 from dotenv import load_dotenv
 from objects_list import PROPERTY_CONFIG, PROPERTY_LABELS
+from urllib.parse import quote
 
 IST = timezone(timedelta(hours=5, minutes=30), name="IST")
 load_dotenv()
@@ -160,3 +161,28 @@ def images_api(nasa_id):
     )
 
     return image_url
+
+def wiki(object_name):
+
+    # object_name = "Andromeda Galaxy"
+
+    url = f"https://en.wikipedia.org/api/rest_v1/page/summary/{quote(object_name.replace(' ', '_'))}"
+
+    try:
+        response = requests.get(
+            url,
+            headers={"User-Agent": "AstronomyBeyondImagination/1.0"},
+            timeout=20
+        )
+
+        response.raise_for_status()
+        data = response.json()
+
+        # description = data.get("description")
+        about = data.get("extract")
+        # article_url = data.get("content_urls", {}).get("desktop", {}).get("page")
+
+    except requests.exceptions.RequestException as error:
+        print("Wikipedia API error:", error)
+
+    return about

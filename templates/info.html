@@ -19,6 +19,10 @@
         <h1 class="obj_name">✨ {{ solar_data.get('name', 'Unknown Object') }} ✨</h1>
         <section class="obj_box" aria-label="Celestial object facts">
             <fieldset>
+                <legend> Object Description </legend>
+                    <div class="obj_desc">
+                        {{ description }}
+                    </div>
                 <legend>🌌 Quick Facts</legend>
                 <div class="obj_info">
                     <table class="facts-table">
@@ -38,6 +42,10 @@
         <section class="obj_box" aria-label="Celestial object facts">
             <fieldset>
                 <legend>🌌 Quick Facts</legend>
+                <legend> Object Description </legend>
+                    <div class="obj_desc">
+                        {{ description }}
+                    </div>
                 <div class="obj_info">
                     <table class="facts-table">
                         <tbody>
